@@ -1,0 +1,267 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Open+Sans&display=swap');
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+*:focus, button:focus {
+  @apply outline-none shadow-none;
+  outline-offset: none;
+  outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  @apply font-bold m-0 text-heading-color;
+  font-family: 'Arimo', sans-serif;
+}
+
+h1 {
+  font-size: 45px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 25px;
+}
+h4 {
+  font-size: 20px;
+}
+h5 {
+  font-size: 18px;
+}
+h6 {
+  font-size: 16px;
+}
+a, button {
+  @apply transition-all duration-300;
+}
+.container {
+  @apply px-4;
+}
+.row {
+  @apply flex flex-wrap;
+}
+.main-btn {
+  @apply inline-block font-bold text-center rounded-full text-white cursor-pointer z-10 transition-all duration-300 bg-theme-color overflow-hidden relative;
+  padding: 18px 38px;
+  font-size: 18px;
+}
+
+.main-btn:hover {
+  @apply text-white;
+}
+.btn-hover {
+  @apply relative overflow-hidden;
+}
+
+.border-btn {
+  @apply border-2 border-theme-color text-theme-color bg-transparent border-solid;
+}
+.border-btn:hover {
+  @apply text-theme-color relative;
+}
+
+.btn-hover::after {
+  @apply absolute w-0 h-0 rounded-full top-1/2 left-1/2 transition-all duration-500 transform-gpu scale-0 -translate-x-1/2 -translate-y-1/2;
+  padding: 50%;
+  content: '';
+  background: rgba(0, 0, 0, .05);
+}
+
+.btn-hover:hover::after {
+  @apply scale-150;
+}
+
+.scroll-top {
+  @apply w-11 h-11 bg-theme-color flex justify-center items-center text-white fixed bottom-8 right-8 rounded-md text-lg transition-all duration-300 z-20;
+}
+.scroll-top:hover {
+  @apply text-white;
+}
+
+/* ============ navbar ============= */
+.navbar-area {
+  @apply absolute top-0 left-0 w-full z-20 transition-all duration-300;
+}
+.sticky {
+  @apply fixed bg-white shadow-md; 
+}
+.collapse.show {
+  @apply block;
+}
+.show .navbar-nav .nav-item a {
+  @apply text-heading-color;
+}
+.toggler-icon {
+  @apply relative block duration-300 bg-white;
+  height: 2px;
+  width: 30px;
+  margin: 6px 0;
+}
+.sticky .toggler-icon {
+  @apply bg-heading-color;
+}
+.active>.toggler-icon:nth-child(1) {
+  @apply transform rotate-45;
+  top: 7px;
+}
+.active>.toggler-icon:nth-child(2) {
+  @apply opacity-0;
+}
+.active>.toggler-icon:nth-child(3) {
+  top: -8px;
+  transform: rotate(135deg);
+}
+.navbar-nav .nav-item a {
+  @apply inline-block text-lg font-normal text-white relative z-10 py-2 lg:py-1;
+}
+.navbar-nav .nav-item a::before {
+  content: '';
+  @apply absolute h-1 w-0 rounded-2xl bottom-3 lg:bottom-2 left-0 -z-10 transition-all duration-300 bg-yellow;
+}
+
+.navbar-nav .nav-item a.active::before,
+.navbar-nav .nav-item a:hover::before {
+  @apply w-full;
+}
+
+.sticky .navbar-nav .nav-item a {
+  @apply text-heading-color;
+}
+
+/* ================= hero =============== */
+
+.hero-content .main-btn {
+  @apply text-white border-white;
+}
+.scroll-bottom {
+  @apply absolute left-0 -bottom-20 w-13 h-13 rounded-full bg-white hidden lg:flex justify-center items-center;
+}
+
+/* ============== feature ============= */
+.feature-icon {
+  @apply w-130 h-130 rounded-full text-theme-color m-auto mb-8 leading-none bg-theme-color bg-opacity-10 flex justify-center items-center;
+  font-size: 65px;
+}
+.feature-icon-2 {
+  font-size: 65px;
+}
+
+/* ============== about ============ */
+.about-img .shape-1 {
+  @apply absolute -z-10 top-1/2 transform -translate-y-1/2 -left-18;
+}
+.about-img .shape-2 {
+  @apply absolute -z-10 bottom-0 right-13;
+}
+.about-img-2 .shape-1 {
+  @apply absolute -z-10 top-1/2 transform -translate-y-1/2 -right-18 lg:w-3/4 lg:right-0;
+}
+.about-img-2 .shape-2 {
+  @apply absolute -z-10 bottom-0 left-13 lg:w-3/4;
+}
+.about-feature li {
+  @apply pl-10 text-xl font-semibold text-heading-color mb-6 relative;
+}
+.about-feature li::before {
+  content: '';
+  box-shadow: 0px 14px 15px rgba(78, 110, 241, 0.26);
+  @apply absolute left-0 w-4 h-4 rounded-full bg-theme-color top-2;
+}
+
+/* ============= testimonial =========== */
+.testimonial-active-wrapper .shape {
+  @apply absolute -z-10;
+}
+.testimonial-active-wrapper .tns-controls {
+  @apply absolute bottom-0 flex items-center right-0 z-10;
+}
+.testimonial-active-wrapper .tns-controls button {
+  @apply w-11 h-11 rounded-full flex items-center justify-center bg-transparent border-2 border-solid border-body-color text-body-color hover:text-theme-color hover:border-theme-color mx-2;
+}
+.quote {
+  box-shadow: 0px 0px 26px rgba(155, 155, 155, 0.16);
+  @apply w-25 h-25 rounded-full flex items-center justify-center bg-theme-color border-8 border-solid border-white text-4xl leading-none text-white absolute top-1/2 transform -translate-y-1/2 -right-12;
+}
+
+/* ============== pricing ============= */
+.pricing-nav li button {
+  @apply text-lg font-bold text-body-color py-2 px-7 bg-theme-color bg-opacity-10 m-1 rounded-full;
+}
+.pricing-nav li button.active {
+  @apply text-white bg-theme-color;
+}
+.pricing_content .tab-pane {
+  display: none;
+}
+.pricing_content .tab-pane.active {
+  display: block;
+}
+.single-pricing {
+  @apply bg-white py-11 px-8 mb-8 shadow-lg rounded-3xl;
+}
+.pricing-header {
+  @apply pb-9 border-b border-border-color mb-11 text-center;
+}
+.pricing-feature li {
+  @apply text-lg mb-4 flex items-center;
+}
+.pricing-feature li i {
+  @apply mr-4 text-heading-color opacity-30 font-bold;
+}
+.pricing-feature li i.active {
+  @apply text-theme-color opacity-100;
+}
+.pricing-btn {
+  @apply text-center;
+}
+.pricing-btn .main-btn {
+  @apply py-3 px-11 font-normal;
+}
+
+/* ============== footer ================== */
+.subscribe-form .main-btn {
+  @apply absolute right-1 top-1 py-4 px-6 rounded-2xl;
+}
+
+@media (max-width: 575px) {
+  .subscribe-form .main-btn {
+    @apply static mt-5 bg-white text-theme-color px-9 py-4;
+  }
+  .subscribe-form .main-btn.btn-hover {
+    @apply relative;
+  }
+}
+.socials li a {
+  @apply flex items-center justify-center w-10 h-10 rounded-full bg-white bg-opacity-10 text-white;
+}
+.socials li a:hover {
+  @apply text-theme-color bg-white;
+}
+.links li a {
+  @apply text-lg leading-8 text-white;
+}
+.links li a:hover {
+  @apply text-white pl-2;
+}
